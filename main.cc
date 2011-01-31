@@ -1,10 +1,17 @@
 #include<stdio.h>
+#include "stream.h"
+#include "encrypt.h"
+#include "decrypt.h"
 
 
 
 // Main function - command line parsing and 
 // calling respective functions
 int main(int argc, char *argv[]){
+
+	//testing
+	Stream st(argv[1], 0) ;
+	st.display() ;
 
 	// Command line parsing here
 

@@ -9,6 +9,11 @@ using namespace std ;
  * concept of visual cryptography
  */
 Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
+	// Open the pbm file and find the length of KEY required
+
+	// Get the stream cipher fo length calulated above
+
+	//Open two files for output
 
 }
 

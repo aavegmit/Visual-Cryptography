@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#define MD5_DIGEST_LENGTH 16
 
 using namespace std;
 
@@ -10,7 +11,8 @@ using namespace std;
 class Stream{
 
 	private:
-		char *sBuffer ;					// To save the string generated
+		unsigned char *sBuffer ;					// To save the string generated
+		int length ;					// len of the key
 
 	public:
 		Stream(char *pphrase, int len) ;		// Constructor method for this class
@@ -19,7 +21,7 @@ class Stream{
 
 		void display() ;				// Prints the key on STDOUT
 
-		char *getStream();				// Returns the generated stream
+		unsigned char *getStream();				// Returns the generated stream
 
 		~Stream() ;					// Destructor method - frees all the momory
 } ;
