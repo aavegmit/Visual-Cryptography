@@ -10,8 +10,9 @@
 int main(int argc, char *argv[]){
 
 	//testing
-	Stream st(argv[1], 0) ;
-	st.display() ;
+//	Stream st(argv[1], 37) ;
+//	st.display() ;
+	Encrypt en(argv[1], argv[2], argv[3]) ;
 
 	// Command line parsing here
 

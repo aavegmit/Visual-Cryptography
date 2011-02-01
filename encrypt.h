@@ -9,6 +9,9 @@ using namespace std ;
  */
 class Encrypt{
 	private:
+		FILE *inp, *out1, *out2 ;
+		unsigned char *key ;
+		
 
 	public:
 		Encrypt(char *pphrase, char *out, char *inFile);	// Constructor method for this class
