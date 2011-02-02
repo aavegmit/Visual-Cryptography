@@ -21,7 +21,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 	// Check if the file is of the correct format
 	unsigned char *line ;
 	line = (unsigned char *)malloc(128) ;	
-	while( fgets((char *)line, sizeof line, inp) != NULL ){
+	while( fgets((char *)line, 128, inp) != NULL ){
 		fputs((char *)line, stdout) ;
 		if (line[0] == '#')
 			continue ;
@@ -31,12 +31,12 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 		}
 		else
 			break ;	
-		memset(line, '\0', sizeof line) ;
+		memset(line, '\0', 128) ;
 	}
 
 	int width = 0 , height = 0 ;
 	// Find the dimensions of the file
-	while( fgets((char *)line, sizeof line, inp) != NULL ){
+	while( fgets((char *)line, 128, inp) != NULL ){
 		fputs((char *)line, stdout) ;
 		if (line[0] == '#')
 			continue ;
@@ -44,9 +44,9 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 		width = atoi(tempW) ;
 		tempW = strtok(NULL, " ") ;
 		height = atoi(tempW) ;
+		memset(line, '\0', 128) ;
 		if (height > 0 && width > 0)
 			break ;
-		memset(line, '\0', sizeof line) ;
 	}
 	printf("Height: %d, Width: %d\n", height, width) ;
 
@@ -105,14 +105,15 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 	int col = width/8 ;
 	if (width%8 != 0)
 		++col ;	
-	line = (unsigned char*)realloc(line, col) ;
+	line = (unsigned char*)realloc(line, col+1) ;
+	memset(line, '\0', col+1) ;
 	int count = 0 ;	
 	unsigned char *outBuf1[2] ;
-	outBuf1[0] = (unsigned char *)malloc(col) ;
-	outBuf1[1] = (unsigned char *)malloc(col ) ;
+	outBuf1[0] = (unsigned char *)malloc(col*2) ;
+	outBuf1[1] = (unsigned char *)malloc(col *2) ;
 	unsigned char *outBuf2[2] ;
-	outBuf2[0] = (unsigned char *)malloc(col) ;
-	outBuf2[1] = (unsigned char *)malloc(col ) ;
+	outBuf2[0] = (unsigned char *)malloc(col*2) ;
+	outBuf2[1] = (unsigned char *)malloc(col *2) ;
 	printf("Col: %d\n", col) ;
 	//	while( fgets((char *)line, sizeof line, inp) != NULL ){
 	while( fread(line, 1, col, inp) > 0 ){
