@@ -12,7 +12,9 @@ int main(int argc, char *argv[]){
 	//testing
 //	Stream st(argv[1], 37) ;
 //	st.display() ;
-	Encrypt en(argv[1], argv[2], argv[3]) ;
+//	Encrypt en(argv[1], argv[2], argv[3]) ;
+	Decrypt de ;
+	de.merge(argv[1], argv[2]) ;
 
 	// Command line parsing here
 

@@ -8,6 +8,7 @@ using namespace std;
  */
 class Decrypt{
 	private:
+		FILE *fp1, *fp2, *outFp ;
 
 	public:
 		Decrypt() ;

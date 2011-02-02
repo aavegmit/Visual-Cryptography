@@ -246,6 +246,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 		memset(line, 0, sizeof line) ;
 	} // end of while 
 	printf("\n") ;
+	free(line) ;
 
 }
 
