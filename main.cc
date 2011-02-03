@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
 //	st.display() ;
 //	Encrypt en(argv[1], argv[2], argv[3]) ;
 	Decrypt de ;
-	de.merge(argv[1], argv[2]) ;
+	de.reproduce(argv[1]) ;
 
 	// Command line parsing here
 
