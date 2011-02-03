@@ -143,7 +143,7 @@ void Decrypt::merge(char *file1, char *file2){
 
 	free(line1) ;
 	free(line2) ;
-	free(outF) ;
+//	free(outF) ;
 	fclose(fp1) ;
 	fclose(fp2) ;
 	fclose(outFp) ;
@@ -237,7 +237,6 @@ void Decrypt::reproduce(char *file1){
 		byte_read1 = fread(c1, 1, col, fp1) ;
 		if (byte_read1){
 			// loop over all the bytes read
-			printf("Byte read: %02x\n", c1[0]) ;
 			for (int i= 0; i < col; i++){
 				maskCount = 0 ;
 				for (unsigned int mask = 0x80; mask != 0; mask >>=1){
@@ -255,7 +254,6 @@ void Decrypt::reproduce(char *file1){
 					flag = flag & flag1 ;
 
 					if (tempMask == 0x00){
-				//		printf("In temp\n") ;
 						tempMask = 0x80 ;
 					}
 
