@@ -1,40 +1,35 @@
 Name: Aaveg Mittal 
-Date: 1/28/2011
+Date: 2/11/2011
 Course: CSCI 531
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-I have successfully implemented the base-64 encoding and decoding. Also, I produce the hexdump of the input obtained from STDIN or from a FILE. 
+I have successfully implemented the concept of visual cryptography using bit manipulation.
 
 -----------------------------------------------------------------------------------------------------------------------------
 FILES:
 
-My Warmup Project 1 has a total of nine files, namely:
+My homework 2 has a total of nine files, namely:
 -main.cc
--dec-base64.cc
--dec-base64.h
--enc-base64.cc
--enc-base64.h
--hexdump.cc
--hexdump.h
+-decrypt.cc
+-decrypt.h
+-encrypt.cc
+-encrypt.h
+-stream.cc
+-stream.h
 -Makefile
 -README
 
-The dec-base64.cc file has the functions to decode the encoded data back into its original form.
+The decrypt.cc file has the functions to merge the shares and to decrypt the merged file into the original image.
 
-The enc-base64.cc file has the functions to encode the input data in to base-64 encoded form.
+The encrypt.cc file has the functions to encrypt the PBM file into two shares based on the concept of visual cryptography
 
-The hexdump.cc file has the function to produce the hexdump of the input data.
+The stream.cc file has the function to generate the simple stream cipher based on the passphrase.
 
 The main function has the command line parsing function, which calls the respective function based on the command line option.
 
 To make the execuatble the graders need to run " make " to create the executable.
 
------------------------------------------------------------------------------------------------------------------------------
-
-KNOWN BUGS:
-
-1) In case of input from the STDIN, please press ctrl+D twice to terminate the input
 
 
 
