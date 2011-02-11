@@ -123,11 +123,11 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 		memset(outBuf2[0], '\0', col*2 ) ;	
 		memset(outBuf2[1], '\0', col*2 ) ;
 
-		if (line[0] == '#')
-			continue ;
-		
-		if (line[0] == 0x0a)
-			continue ;
+//		if (line[0] == '#')
+//			continue ;
+//		
+//		if (line[0] == 0x0a)
+//			continue ;
 
 		int k = 0 , maskCount = 0;
 		for (int i = 0 ; i < col ; i++){
@@ -243,7 +243,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 			fprintf(stderr, "File write failed.") ;
 			exit(0) ;
 		}	
-		memset(line, 0, sizeof line) ;
+		memset(line, '\0', col+1) ;
 	} // end of while 
 //	printf("\n") ;
 	free(line) ;

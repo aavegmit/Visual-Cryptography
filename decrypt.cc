@@ -221,7 +221,10 @@ void Decrypt::reproduce(char *file1){
 	int col = width1/8 ;
 	int outCol = width1/16 ;
 	if (width1%8 != 0){
-		++col ; ++outCol ;
+		++col ;
+	}
+	if (width1%16 != 0){
+		++outCol ;
 	}
 //	printf("Col: %d, outCol: %d\n", col, outCol) ;
 
@@ -250,6 +253,9 @@ void Decrypt::reproduce(char *file1){
 						break ;
 					}
 
+
+					
+
 					flag = c1[i] & mask ;
 					mask >>= 1;
 					flag1 = c1[i] & mask ;
@@ -266,6 +272,11 @@ void Decrypt::reproduce(char *file1){
 						outC1[i/2] = outC1[i/2] & ~tempMask ;
 					}
 
+					if ( (width1 % 8) == 0 && i == col-1 && maskCount == 8){
+						tempMask = 0x80 ;
+						fputc(outC1[i/2], stdout) ;
+						break ;
+					}
 					if (tempMask == 0x01){
 						fputc(outC1[i/2], stdout) ;
 					}
