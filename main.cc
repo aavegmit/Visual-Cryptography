@@ -20,22 +20,6 @@ void usage(){
 // calling respective functions
 int main(int argc, char *argv[]){
 
-	//testing
-	//	Stream st(argv[1], 37) ;
-	//	st.display() ;
-	//	Encrypt en(argv[1], argv[2], argv[3]) ;
-	//	Decrypt de ;
-	//	de.reproduce(argv[1]) ;
-
-	// Command line parsing here
-
-	// Class Stream , constructor arg - pphrase, len
-
-	// Class Encrypt, constructor arg - pphrase, out, pbmfile
-
-	// Class Merge, constructor arg - file1, file2
-
-	// Class decrypt, constructor arg - mergedFile	
 
 	int choice = 0, length = 0, stdI = 0 ;
 	char *pphrase, *len, *out, *inpF, *inpF1 ;
@@ -132,8 +116,10 @@ int main(int argc, char *argv[]){
 				FILE *fop ;
 				char c;
 				fop = fopen("input.tmp", "wb") ;
-				while( ( c = getchar()) != EOF   )   {
-					fputc(c, fop) ;
+				while( !feof(stdin)   )   {
+					c = fgetc(stdin) ;
+					if (!feof(stdin))
+						fputc(c, fop) ;
 				}
 				char inputFil[10] ;
 				strncpy(inputFil, "input.tmp",9) ;
@@ -174,7 +160,9 @@ int main(int argc, char *argv[]){
 				FILE *fop ;
 				char c;
 				fop = fopen("input.tmp", "wb") ;
-				while( ( c = getchar()) != EOF   )   {
+				while( !feof(stdin)   )   {
+					c = fgetc(stdin) ;
+					if(!feof(stdin))
 					fputc(c, fop) ;
 				}
 				char inputFil[10] ;
@@ -190,7 +178,7 @@ int main(int argc, char *argv[]){
 	// Command line parsing done, now call respective methods
 	if (choice == 1){
 		Stream st(pphrase, length) ;
-		st.display() ;
+		st.flushout() ;
 	}
 	else if(choice == 2){
 		Encrypt en(pphrase, out, inpF) ;

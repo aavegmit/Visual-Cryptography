@@ -22,7 +22,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 	unsigned char *line ;
 	line = (unsigned char *)malloc(128) ;	
 	while( fgets((char *)line, 128, inp) != NULL ){
-		fputs((char *)line, stdout) ;
+//		fputs((char *)line, stdout) ;
 		if (line[0] == '#')
 			continue ;
 		if (strncmp((char *)line, "P4", 2)){
@@ -37,7 +37,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 	int width = 0 , height = 0 ;
 	// Find the dimensions of the file
 	while( fgets((char *)line, 128, inp) != NULL ){
-		fputs((char *)line, stdout) ;
+//		fputs((char *)line, stdout) ;
 		if (line[0] == '#')
 			continue ;
 		char *tempW = strtok((char *)line, " ") ;
@@ -48,7 +48,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 		if (height > 0 && width > 0)
 			break ;
 	}
-	printf("Height: %d, Width: %d\n", height, width) ;
+//	printf("Height: %d, Width: %d\n", height, width) ;
 
 	// Get the stream cipher fo length calulated above
 	int length = (height * width)/8 ;
@@ -114,7 +114,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 	unsigned char *outBuf2[2] ;
 	outBuf2[0] = (unsigned char *)malloc(col*2) ;
 	outBuf2[1] = (unsigned char *)malloc(col *2) ;
-	printf("Col: %d\n", col) ;
+//	printf("Col: %d\n", col) ;
 	//	while( fgets((char *)line, sizeof line, inp) != NULL ){
 	while( fread(line, 1, col, inp) > 0 ){
 
@@ -245,7 +245,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
 		}	
 		memset(line, 0, sizeof line) ;
 	} // end of while 
-	printf("\n") ;
+//	printf("\n") ;
 	free(line) ;
 
 }
@@ -254,7 +254,7 @@ Encrypt::Encrypt(char *pphrase, char *out, char *inFile){
  * frees up any allocated memory, basically cleans up
  */
 Encrypt::~Encrypt(){
-	printf("cleaning up..\n") ;
+//	printf("cleaning up..\n") ;
 	fclose(inp) ;
 	fclose(out1) ;
 	fclose(out2) ;

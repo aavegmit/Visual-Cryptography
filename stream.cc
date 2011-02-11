@@ -92,6 +92,16 @@ void Stream::display(){
 }
 
 
+/*
+ * Displays the KEY in binary format
+ */
+void Stream::flushout(){
+	for (int i = 0; i < length; i++){
+		printf("%c", sBuffer[i]) ;
+	}
+}
+
+
 
 /* Destructor class
  * Free up all the memory, basically cleans up

@@ -23,5 +23,7 @@ class Stream{
 
 		unsigned char *getStream();				// Returns the generated stream
 
+		void flushout() ;				// Prints the key in binary format
+
 		~Stream() ;					// Destructor method - frees all the momory
 } ;
